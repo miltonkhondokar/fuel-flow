@@ -269,17 +269,17 @@ CostCategory (uuid)
 
 ## 🌱 Seeder Execution Order
 
-
-FuelUnitSeeder
-FuelTypeSeeder
-PumpSeeder
-PumpFuelPriceSeeder
-PumpFuelStockSeeder
-PumpFuelReadingSeeder
-CostCategorySeeder
-CostEntrySeeder
-PumpComplaintSeeder
-
+```
+1. FuelUnitSeeder
+2. FuelTypeSeeder
+3. PumpSeeder
+4. PumpFuelPriceSeeder
+5. PumpFuelStockSeeder
+6. PumpFuelReadingSeeder
+7. CostCategorySeeder
+8. CostEntrySeeder
+9. PumpComplaintSeeder
+```
 
 ---
 
