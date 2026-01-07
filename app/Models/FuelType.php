@@ -58,4 +58,15 @@ class FuelType extends Model
         return $this->belongsTo(FuelUnit::class, 'fuel_unit_uuid', 'uuid');
     }
 
+    public function pumps()
+    {
+        return $this->belongsToMany(
+            Pump::class,
+            'pump_fuel_prices',
+            'fuel_type_uuid',
+            'pump_uuid',
+            'uuid',
+            'uuid'
+        );
+    }
 }

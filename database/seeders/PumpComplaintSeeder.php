@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\Pump;
 
 class PumpComplaintSeeder extends Seeder
 {
@@ -14,10 +15,15 @@ class PumpComplaintSeeder extends Seeder
      */
     public function run(): void
     {
+
+
+        $pump = Pump::first();
+
+
         DB::table('pump_complaints')->insert([
             [
                 'uuid' => Str::uuid(),
-                'pump_uuid' => 'PUT_PUMP_UUID_HERE',
+                'pump_uuid' => $pump->uuid,
                 'category' => 'nozzle_issue', // just string
                 'title' => 'Nozzle not dispensing fuel',
                 'description' => 'Nozzle #3 is stuck and not dispensing fuel properly',

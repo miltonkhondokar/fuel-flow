@@ -55,4 +55,9 @@ class PumpFuelStock extends Model
     {
         return $this->belongsTo(FuelType::class, 'fuel_type_uuid', 'uuid');
     }
+
+    public function fuelUnit()
+    {
+        return $this->belongsTo(FuelUnit::class, 'fuel_unit_uuid', 'uuid');
+    }
 }

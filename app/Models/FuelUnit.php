@@ -24,4 +24,14 @@ class FuelUnit extends Model
             }
         });
     }
+
+    public function fuelTypes()
+    {
+        return $this->hasMany(FuelType::class, 'fuel_unit_uuid', 'uuid');
+    }
+
+    public function pumpFuelStocks()
+    {
+        return $this->hasMany(PumpFuelStock::class, 'fuel_unit_uuid', 'uuid');
+    }
 }

@@ -66,4 +66,11 @@ class Pump extends Model
     {
         return $this->hasMany(PumpComplaint::class, 'pump_uuid', 'uuid');
     }
+
+    public function latestFuelPrice($fuelTypeUuid)
+    {
+        return $this->hasOne(PumpFuelPrice::class, 'pump_uuid', 'uuid')
+            ->where('fuel_type_uuid', $fuelTypeUuid)
+            ->latest('created_at');
+    }
 }

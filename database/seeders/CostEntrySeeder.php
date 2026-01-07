@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\Pump;
+use App\Models\CostCategory;
 
 class CostEntrySeeder extends Seeder
 {
@@ -14,11 +16,16 @@ class CostEntrySeeder extends Seeder
      */
     public function run(): void
     {
+
+        //fetch pump and pump uuids
+        $pump = Pump::first();
+        $costCategory = CostCategory::first();
+
         DB::table('cost_entries')->insert([
             [
                 'uuid' => Str::uuid(),
-                'pump_uuid' => 'PUT_PUMP_UUID_HERE',
-                'cost_category_uuid' => 'PUT_COST_CATEGORY_UUID_HERE',
+                'pump_uuid' => $pump->uuid,
+                'cost_category_uuid' => $costCategory->uuid,
                 'amount' => 15000.00,
                 'expense_date' => now(),
                 'reference_no' => 'EXP-001',

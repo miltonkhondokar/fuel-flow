@@ -18,7 +18,9 @@ use App\Constants\UserEmailVerificationStatus;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory;
+    use Notifiable;
+    use HasRoles;
 
     protected $table = 'users';
 
@@ -28,13 +30,12 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
-        'user_type',  // consider renaming to role_type if you want clearer semantics
         'gender',
-        'vbu_id',
-        'phone_verification_status',
-        'phone_verified_at',
+        'email_verification_status',
+        'email_verified_at',
         'user_status',
     ];
+
 
     protected $hidden = [
         'password',

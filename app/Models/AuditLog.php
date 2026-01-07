@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
-
 use Illuminate\Database\Eloquent\Model;
 
 class AuditLog extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'uuid',
@@ -18,7 +17,6 @@ class AuditLog extends Model
         'item_id',
         'ip_address',
         'user_agent',
-        'created_at',
     ];
 
     protected $casts = [
